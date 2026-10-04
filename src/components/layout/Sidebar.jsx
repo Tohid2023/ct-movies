@@ -70,9 +70,7 @@ function Sidebar({ open, setOpen }) {
             
             {/* Logo */}
             <div className="flex h-[72px] items-center justify-center border-b border-[#292929]">
-                <h1 className="text-xl font-bold text-[#f5c400]">
-                    CT.Movies
-                </h1>
+                <img className="w-24" src="/public/ct-movies.png" alt="" />
             </div>
 
             <div className="px-5 py-8">
