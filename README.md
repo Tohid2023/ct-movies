@@ -1,16 +1,38 @@
-# React + Vite
+# CT Movies
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+CT Movies is a movie website made using React. I built this project to practice React, API integration, responsive design, and state management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search for movies and series
+- View movie details
+- Add movies to watchlist
+- Remove movies from watchlist
+- Responsive design
+- Mobile sidebar
+- OMDb API integration
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- React Router
+- Context API
+- OMDb API
 
-## Expanding the Oxlint configuration
+## How to Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Clone the project:
+
+```bash
+git clone YOUR_GITHUB_REPO_URL
+
+npm install
+
+.env
+VITE_OMDB_API_KEY=your_api_key
+
+run project
+npm run dev
