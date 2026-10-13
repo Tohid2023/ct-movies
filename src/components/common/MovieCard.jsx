@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-import { Heart, Star } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useWatchlist } from "../../context/WatchlistContext";
 
-function MovieCard({ movie }) {  
+const MovieCard = ({ movie }) => {  
   const navigate = useNavigate();
 
   const { toggleWatchlist, isInWatchlist } = useWatchlist();
@@ -19,7 +18,6 @@ function MovieCard({ movie }) {
 
     toggleWatchlist(movie);
   }
-  console.log(movie.imdbRating);
 
   return (
     <article

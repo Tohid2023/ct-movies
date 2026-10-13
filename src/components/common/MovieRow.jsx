@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import MovieCard from "./MovieCard";
 
-function MovieRow({ title, movies = [] }) {
+const MovieRow = ({ title, movies = [] }) => {
   const scrollLeft = () => {
     document
       .getElementById(`movie-row-${title}`)

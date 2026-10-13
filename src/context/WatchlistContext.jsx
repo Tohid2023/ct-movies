@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const WatchlistContext = createContext();
 
-function WatchlistProvider({ children }) {
+const WatchlistProvider = ({ children }) => {
     const [watchlist, setWatchlist] = useState(() => {
         const savedMovies = localStorage.getItem("watchlist");
 
