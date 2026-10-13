@@ -15,11 +15,11 @@ function Header({ setSidebarOpen }) {
   }
 
   return (
-    <header className="relative flex h-[72px] items-center justify-between border-b border-[#292929] bg-[#171717] px-5 md:px-8 lg:px-10">
+    <header className="relative flex h-18 items-center justify-between border-b border-[#292929] bg-[#171717] px-5 md:px-8 lg:px-10">
       {/* Mobile Menu */}
       <button
         onClick={() => setSidebarOpen(true)}
-        className="text-gray-300 lg:hidden"
+        className="text-gray-300 md:hidden"
       >
         <Menu size={22} />
       </button>

@@ -3,7 +3,7 @@ import React from 'react'
 const FeaturedBanner = ({movie}) => {
 
   return (
-        <section className="relative mb-10 h-105 overflow-hidden rounded-2xl">
+        <section className="relative mb-8 min-h-90 overflow-hidden rounded-2xl md:mb-10 md:min-h-95">
             <img
                 src={movie.Poster}
                 alt={movie.Title}
@@ -31,17 +31,17 @@ const FeaturedBanner = ({movie}) => {
                             {movie.Plot}
                         </p>
 
-                        <button className="flex w-fit items-center gap-3 text-lg font-semibold text-[#f5c400]">
+                        <button className="flex w-fit items-center gap-3 sm:text-sm md:text-xl lg:text-2xl font-semibold text-[#f5c400]">
                             WATCH TRAILER
                         </button>
                     </div>
 
                     <div className="mt-16 text-center">
-                        <p className="mb-2 text-sm font-semibold text-white">
+                        <p className="mb-2 text-sm font-semibold text-white md:text-md lg:text-lg">
                             {movie.Year}
                         </p>
 
-                        <h2 className="text-4xl font-bold uppercase text-white md:text-6xl">
+                        <h2 className=" font-bold uppercase text-white sm:text-2xl md:text-4xl lg:text-6xl">
                             {movie.Title}
                         </h2>
                     </div>

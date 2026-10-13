@@ -84,10 +84,14 @@ function Home() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_280px]">
-        <HeroSection />
+      <div class="flex flex-col gap-5 xl:flex-row">
+        <div class="flex-1">
+          <HeroSection />
+        </div>
 
-        <HotNews />
+        <div class="w-full xl:w-70 xl:shrink-0">
+          <HotNews />
+        </div>
       </div>
 
       <MovieRow title="Recommended For You" movies={recommendedMovies} />
@@ -98,14 +102,13 @@ function Home() {
 
       <MovieRow title="Popular Series" movies={comedyMovies} />
 
-      <FeatureCards movies={featureCards}/>
+      <FeatureCards movies={featureCards} />
 
       <MovieRow title="IMDb Top Movies" movies={topMovies} />
 
       <MovieRow title="Trending Series" movies={seriesMovies} />
 
       {featuredMovie.length > 0 && <FeaturedBanner movie={featuredMovie[1]} />}
-      
     </div>
   );
 }
