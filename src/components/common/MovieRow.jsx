@@ -15,7 +15,7 @@ function MovieRow({ title, movies = [] }) {
   };
 
   return (
-    <section className="mb-8 md:mb-10">
+    <section className="mb-8 md:mb-10 ">
       <div className="mb-5 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-white md:text-2xl">
           {title}
@@ -41,7 +41,7 @@ function MovieRow({ title, movies = [] }) {
       {movies.length > 0 ? (
         <div
           id={`movie-row-${title}`}
-          className="flex gap-4 overflow-x-auto scroll-smooth pb-2"
+          className="flex gap-4 overflow-x-auto scroll-smooth pb-2 scrollbar-none"
         >
           {movies.map((movie) => (
             <MovieCard key={movie.imdbID} movie={movie} />
@@ -49,7 +49,7 @@ function MovieRow({ title, movies = [] }) {
         </div>
       ) : (
         <div className="rounded-xl border border-[#292929] bg-[#242424] p-8 text-center text-sm text-gray-500">
-          No movies available.
+          Loading...
         </div>
       )}
     </section>

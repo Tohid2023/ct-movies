@@ -1,77 +1,64 @@
+import { useState, useEffect } from "react";
 import { Heart, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useWatchlist } from "../../context/WatchlistContext";
 
-function MovieCard({ movie }) {
-    const navigate = useNavigate();
+function MovieCard({ movie }) {  
+  const navigate = useNavigate();
 
-    const { toggleWatchlist, isInWatchlist } = useWatchlist();
+  const { toggleWatchlist, isInWatchlist } = useWatchlist();
 
-    const saved = isInWatchlist(movie.imdbID);
+  const saved = isInWatchlist(movie.imdbID);
 
-    function openMovie() {
-        navigate(`/movie/${movie.imdbID}`);
-    }
+  function openMovie() {
+    navigate(`/movie/${movie.imdbID}`);
+  }
 
-    function handleWatchlist(event) {
-        event.stopPropagation();
+  function handleWatchlist(event) {
+    event.stopPropagation();
 
-        toggleWatchlist(movie);
-    }
+    toggleWatchlist(movie);
+  }
+  console.log(movie.imdbRating);
 
-    return (
-        <article
-            onClick={openMovie}
-            className="group w-[150px] shrink-0 cursor-pointer sm:w-[170px] md:w-[180px]"
+  return (
+    <article
+      onClick={openMovie}
+      className=" relative group w-37.5 shrink-0 cursor-pointer sm:w-42.5 md:w-45"
+    >
+      <div className="relative aspect-2/3 overflow-hidden rounded-xl bg-[#242424]">
+        <img
+          src={
+            movie.Poster && movie.Poster !== "N/A"
+              ? movie.Poster
+              : "/placeholder-movie.jpg"
+          }
+          alt={movie.Title}
+          className="p-2 h-full w-full object-cover rounded-xl"
+        />
+
+        <button
+          onClick={handleWatchlist}
+          className="absolute right-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-black/70"
         >
-            <div className="relative aspect-[2/3] overflow-hidden rounded-xl bg-[#242424]">
-                <img
-                    src={
-                        movie.Poster && movie.Poster !== "N/A"
-                            ? movie.Poster
-                            : "/placeholder-movie.jpg"
-                    }
-                    alt={movie.Title}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                />
+          <Heart
+            size={17}
+            className={saved ? "fill-[#f5c400] text-[#f5c400]" : "text-white"}
+          />
+        </button>
 
-                <button
-                    onClick={handleWatchlist}
-                    className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-black/70"
-                >
-                    <Heart
-                        size={17}
-                        className={
-                            saved
-                                ? "fill-[#f5c400] text-[#f5c400]"
-                                : "text-white"
-                        }
-                    />
-                </button>
+        <div className=" absolute bottom-2 right-2 left-2 backdrop-blur-md p-2 text-center mt-3 rounded-b-sm">
+          <h3 className="truncate text-sm font-medium text-white">
+            {movie.Title}
+          </h3>
 
-                {movie.imdbRating && (
-                    <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded-md bg-black/70 px-2 py-1 text-xs">
-                        <Star
-                            size={12}
-                            className="fill-[#f5c400] text-[#f5c400]"
-                        />
-
-                        <span>{movie.imdbRating}</span>
-                    </div>
-                )}
-            </div>
-
-            <div className="mt-3">
-                <h3 className="truncate text-sm font-medium text-white">
-                    {movie.Title}
-                </h3>
-
-                <p className="mt-1 text-xs text-gray-500">
-                    {movie.Year} • {movie.Type}
-                </p>
-            </div>
-        </article>
-    );
+          <p className="mt-1 text-xs text-white">
+            {movie.Year} • {movie.Type}
+          </p>
+        </div>
+      </div>
+    </article>
+  );
 }
 
 export default MovieCard;

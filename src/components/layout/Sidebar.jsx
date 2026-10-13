@@ -26,12 +26,12 @@ const mainMenu = [
     {
         name: "Blog",
         icon: BookOpen,
-        path: "#",
+        path: "/blog",
     },
     {
         name: "Artists",
         icon: Users,
-        path: "#",
+        path: "/artists",
     },
 ];
 
@@ -70,7 +70,7 @@ function Sidebar({ open, setOpen }) {
             
             {/* Logo */}
             <div className="flex h-[72px] items-center justify-center border-b border-[#292929]">
-                <img className="w-24" src="/public/ct-movies.png" alt="" />
+                <img className="w-24" src="/ct-movies.png" alt="" />
             </div>
 
             <div className="px-5 py-8">
@@ -88,6 +88,7 @@ function Sidebar({ open, setOpen }) {
                             <NavLink
                                 key={item.name}
                                 to={item.path}
+                                end
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 rounded-lg px-3 py-3 text-sm ${
                                         isActive
