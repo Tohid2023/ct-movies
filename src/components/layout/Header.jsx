@@ -1,10 +1,11 @@
 import { Search, Bell, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link,NavLink, useNavigate } from "react-router-dom";
 
-function Header({ setSidebarOpen }) {
+const Header = ({ setSidebarOpen }) => {
   const [searchText, setSearchText] = useState("");
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [active , setActive] = useState("all");
 
   const navigate = useNavigate();
 
@@ -27,29 +28,53 @@ function Header({ setSidebarOpen }) {
       {/* Navigation */}
       <nav className="hidden items-center gap-7 md:flex">
         <a
-          href="/"
-          className="border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+          href="/#"
+          onClick={() => setActive("all")}
+          className={
+            active === "all"
+                ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+                : "text-sm text-gray-300 hover:text-white"
+        }
         >
           All
         </a>
 
-        <a href="#" className="text-sm text-gray-300 hover:text-white">
+        <a href="/#movies"
+        onClick={() => setActive("movies")}
+          className={
+            active === "movies"
+                ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+                : "text-sm text-gray-300 hover:text-white"
+        }
+        >
           Movie
         </a>
 
-        <a href="#" className="text-sm text-gray-300 hover:text-white">
+        <a href="/#series"
+          onClick={() => setActive("series")}
+          className={
+            active === "series"
+              ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+                : "text-sm text-gray-300 hover:text-white"
+          }
+        >
           Series
         </a>
 
-        <button className="text-sm text-gray-300 hover:text-white">
+        <a to="/#genres" onClick={() => setActive("genres")}
+          className={
+            active === "genres"
+              ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+                : "text-sm text-gray-300 hover:text-white"
+          }>
           Genres
-        </button>
+        </a>
       </nav>
 
       {/* Right Side */}
       <div className="ml-auto flex items-center gap-4">
         {/* Search */}
-        <div className="hidden h-10 w-[260px] items-center rounded-full bg-[#0d0d0d] px-4 md:flex">
+        <div className="hidden h-10 w-65 items-center rounded-full bg-[#0d0d0d] px-4 md:flex">
           <Search size={17} className="text-gray-400" />
           <input
             type="text"
@@ -81,7 +106,7 @@ function Header({ setSidebarOpen }) {
         </div>
       </div>
       {mobileSearchOpen && (
-    <div className="absolute left-0 top-[72px] z-40 w-full border-b border-[#292929] bg-[#171717] p-4 md:hidden">
+    <div className="absolute left-0 top-18 z-40 w-full border-b border-[#292929] bg-[#171717] p-4 md:hidden">
         <div className="flex h-10 items-center rounded-full bg-[#0d0d0d] px-4">
             <Search size={17} className="text-gray-400" />
             <input

@@ -97,15 +97,21 @@ function Home() {
         </div>
       </div>
 
-      <MovieRow title="Recommended For You" movies={recommendedMovies} />
+      <div id="movies">
+        <MovieRow title="Recommended For You" movies={recommendedMovies} />
+      </div>
 
       <MovieRow title="Trending Movies" movies={actionMovies} />
 
       {featuredMovie.length > 0 && <FeaturedBanner movie={featuredMovie[0]} />}
 
-      <MovieRow title="Popular Series" movies={comedyMovies} />
+      <div id="series">
+        <MovieRow title="Popular Series" movies={comedyMovies} />
+      </div>
 
-      <GenreSection />
+      <div id="genres">
+        <GenreSection />
+      </div>
 
       <FeatureCards movies={featureCards} />
 
