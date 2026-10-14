@@ -54,19 +54,20 @@ const Header = ({ setSidebarOpen }) => {
           onClick={() => setActive("series")}
           className={
             active === "series"
-              ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+                ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
                 : "text-sm text-gray-300 hover:text-white"
-          }
+        }
         >
           Series
         </a>
 
-        <a to="/#genres" onClick={() => setActive("genres")}
+        <a href="/#genres" onClick={() => setActive("genres")}
           className={
             active === "genres"
-              ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
+                ? "border-b-2 border-[#f5c400] pb-2 text-sm text-[#f5c400]"
                 : "text-sm text-gray-300 hover:text-white"
-          }>
+        }
+        >
           Genres
         </a>
       </nav>

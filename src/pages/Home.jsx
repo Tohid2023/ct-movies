@@ -14,6 +14,8 @@ function Home() {
   const [comedyMovies, setComedyMovies] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
   const [seriesMovies, setSeriesMovies] = useState([]);
+  const [newReleaseMovies , setNewReleaseMovies] = useState([]);
+  const [topRatedMovies, setTopoRatedMovies] = useState([]);
 
   const [featuredMovie, setFeatureMovie] = useState([]);
   const [featureCards, setFeatureCards] = useState([]);
@@ -77,12 +79,16 @@ function Home() {
     const comedy = await searchMovies("Friends");
     const top = await searchMovies("Inception");
     const series = await searchMovies("Game of Thrones");
+    const release = await searchMovies("Marvel");
+    const topRated = await searchMovies("Top");
 
     setRecommendedMovies(recommended);
     setActionMovies(action);
     setComedyMovies(comedy);
     setTopMovies(top);
     setSeriesMovies(series);
+    setNewReleaseMovies(release);
+    setTopoRatedMovies(topRated);
   }
 
   return (
@@ -120,6 +126,11 @@ function Home() {
       <MovieRow title="Trending Series" movies={seriesMovies} />
 
       {featuredMovie.length > 0 && <FeaturedBanner movie={featuredMovie[1]} />}
+
+      <MovieRow title="New Releases" movies={newReleaseMovies} />
+
+      <MovieRow title="Top Rated" movies={topRatedMovies} />
+
     </div>
   );
 }
