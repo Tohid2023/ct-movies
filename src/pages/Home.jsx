@@ -6,6 +6,7 @@ import HotNews from "../components/home/HotNews";
 import MovieRow from "../components/common/MovieRow";
 import FeaturedBanner from "../components/common/FeaturedBanner";
 import FeatureCards from "../components/common/FeatureCards";
+import GenreSection from "../components/home/GenreSection";
 
 function Home() {
   const [recommendedMovies, setRecommendedMovies] = useState([]);
@@ -16,6 +17,8 @@ function Home() {
 
   const [featuredMovie, setFeatureMovie] = useState([]);
   const [featureCards, setFeatureCards] = useState([]);
+
+  // console.log(recommendedMovies);
 
   useEffect(() => {
     async function fetchedFeatureMovie() {
@@ -84,12 +87,12 @@ function Home() {
 
   return (
     <div>
-      <div class="flex flex-col gap-5 xl:flex-row">
-        <div class="flex-1">
+      <div className="flex flex-col gap-5 xl:flex-row">
+        <div className="flex-1">
           <HeroSection />
         </div>
 
-        <div class="w-full xl:w-70 xl:shrink-0">
+        <div className="w-full xl:w-70 xl:shrink-0">
           <HotNews />
         </div>
       </div>
@@ -101,6 +104,8 @@ function Home() {
       {featuredMovie.length > 0 && <FeaturedBanner movie={featuredMovie[0]} />}
 
       <MovieRow title="Popular Series" movies={comedyMovies} />
+
+      <GenreSection />
 
       <FeatureCards movies={featureCards} />
 

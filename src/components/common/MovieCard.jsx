@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
       <div className="relative aspect-2/3 overflow-hidden rounded-xl bg-[#242424]">
         <img
           src={
-            movie.Poster && movie.Poster !== "N/A"
+            movie.Poster !== "N/A"
               ? movie.Poster
               : "/placeholder-movie.jpg"
           }
@@ -44,6 +44,8 @@ const MovieCard = ({ movie }) => {
             className={saved ? "fill-[#f5c400] text-[#f5c400]" : "text-white"}
           />
         </button>
+
+        
 
         <div className=" absolute bottom-2 right-2 left-2 backdrop-blur-md p-2 text-center mt-3 rounded-b-sm">
           <h3 className="truncate text-sm font-medium text-white">
